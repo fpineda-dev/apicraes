@@ -5,7 +5,7 @@ const UserSchema = new Schema({
     idmentioned: { type: BigInt, default: 4 },    
     names: { type: String, required: true },         
     surnames: { type: String, required: true },        
-    telephone: { type: Decimal128 },
+    telephone: { type: Decimal128, default: 0 },
     petition: { type: String },      
     baptized: { type: Boolean },        
     status_: { type: Boolean },          
