@@ -1,11 +1,16 @@
 const { Decimal128 } = require('mongodb');
 const { Schema, model } = require('mongoose');
 
+const phoneSchema = new Schema({
+    type: String,
+    match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/, 'Enter a valid phone number']
+});
+
 const UserSchema = new Schema({
     idmentioned: { type: BigInt, default: 4 },    
     names: { type: String, required: true },         
     surnames: { type: String, required: true },        
-    telephone: { type: Decimal128, default: 0 },
+    telephone: { type: [ phoneSchema ], index: true, unique: true },
     petition: { type: String },      
     baptized: { type: Boolean },        
     status_: { type: Boolean },          
