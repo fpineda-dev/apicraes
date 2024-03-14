@@ -22,6 +22,24 @@ const getList = async (req, res) =>{
 
 }
 
+const getSoulByDate = async (req, res) => {
+    const { date } = req.params;   
+    const dateFormat = date.substring(0, 10); 
+
+    const dateTest = Date.now();
+    const today = new Date(dateTest)
+    console.log(`Date now ${today}`);
+    const formattedDate = `${today.getFullYear()}-${'0'}${today.getMonth() + 1}-${today.getDate() + 1}` 
+     
+    console.log(`${formattedDate} Data Param is ${dateFormat}`);
+
+    if (date !== '') {        
+        const soul = await users.find( { created: { $gt: dateFormat, $lte: formattedDate } } )        
+        res.json(soul);
+    }
+    
+}
+
 const createUser = async (req, res) =>{
     const { names, surnames, telephone, petition } = req.body;
     console.log(`Return Body Nombre ${names}`);
@@ -34,5 +52,5 @@ const createUser = async (req, res) =>{
     );
 }
 
-module.exports = { getList, createUser }
+module.exports = { getList, getSoulByDate, createUser }
 

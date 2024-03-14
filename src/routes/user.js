@@ -1,5 +1,5 @@
 const express = require("express");
-const { getList, createUser } = require("../controllers/user");
+const { getList, getSoulByDate, createUser } = require("../controllers/user");
 const router = express.Router();
 
 /**
@@ -8,6 +8,7 @@ const router = express.Router();
 
 //TODO [GET] http://localhost:3001/users
 router.get("/", getList);
+router.get("/:date", getSoulByDate);
 router.post("/", createUser);
 
 
