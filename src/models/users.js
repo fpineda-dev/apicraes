@@ -5,7 +5,7 @@ const UserSchema = new Schema({
     idmentioned: { type: BigInt, default: 4 },    
     names: { type: String, required: true },         
     surnames: { type: String, required: true },        
-    telephone: { type: String, match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/, 'Enter a valid phone number']},
+    telephone: { type: String},
     petition: { type: String },      
     baptized: { type: Boolean },        
     status_: { type: Boolean },          
