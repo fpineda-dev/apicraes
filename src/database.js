@@ -2,7 +2,7 @@ const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const mongoose = require('mongoose');
 
-const PART_URI = "mongodb+srv://FranTest:p%2540ssword@craesdb.hg9l9bp"
+const PART_URI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@craesdb.hg9l9bp`
 
 const DB_URI = `${PART_URI}${process.env.MONGO_URI}`
 
