@@ -52,5 +52,9 @@ const createUser = async (req, res) =>{
     );
 }
 
-module.exports = { getList, getSoulByDate, createUser }
+module.exports = { 
+    getList, 
+    getSoulByDate, 
+    createUser
+}
 
