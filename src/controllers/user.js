@@ -13,6 +13,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const  users  = require('../models/users');
+const { log } = require('console');
 
 
 const getList = async (req, res) =>{
@@ -28,8 +29,18 @@ const getSoulByDate = async (req, res) => {
 
     const dateTest = Date.now();
     const today = new Date(dateTest)
+    let dateToday = "";
     console.log(`Date now ${today}`);
-    const formattedDate = `${today.getFullYear()}-${'0'}${today.getMonth() + 1}-${today.getDate() + 1}` 
+    let dateNow = `${today.getDate() + 1}`
+    if (dateNow >= "31") {        
+        dateToday = `${today.getDate()}`
+    } else {
+        dateToday = dateNow 
+    }
+
+    console.log(`DATE NOW ${dateToday}`);
+
+    const formattedDate = `${today.getFullYear()}-${'0'}${today.getMonth() + 1}-${dateToday}` 
      
     console.log(`${formattedDate} Data Param is ${dateFormat}`);
 
