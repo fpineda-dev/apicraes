@@ -31,7 +31,7 @@ const getAllSoulVAR = async (req, res) => {
                     if (mentionVal.idmentioned == userVal.idmentioned) {
                         console.log(`${userVal.names} ${userVal.surnames} ${mentionVal.idmentioned} ${mentionVal.mentioned}`);
                         userFullNames = `${userVal.names} ${userVal.surnames}`
-                        let AllUsers = { "idmention": mentionVal.idmentioned, "fullnames": userFullNames, "mention": mentionVal.mentioned  }
+                        let AllUsers = { "id": userVal.id, "idmention": mentionVal.idmentioned, "fullnames": userFullNames, "mention": mentionVal.mentioned  }
                         
                         listUser.push(AllUsers);
                     }
@@ -51,5 +51,5 @@ const getAllSoulVAR = async (req, res) => {
 
 module.exports = { 
     createMentiond,
-    getAllSoulVAR
+    getAllSoulVAR,    
 }
