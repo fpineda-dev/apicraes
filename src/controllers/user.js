@@ -63,9 +63,27 @@ const createUser = async (req, res) =>{
     );
 }
 
+const updateSoulStatus = async (req, res) => {
+    const { id } = req.params;
+    const {  idmentioned } = req.body;
+    if (id !== '') {
+        try {
+            const query = { "_id": id };
+            const update = { $set: { "idmentioned": idmentioned } };
+            const options = {upsert: true};
+            const updateUser = await users.updateOne(query, update, options);
+            res.json(updateUser)
+        } catch (error) {
+            console.error(`unexpectation Error detail: ${error}`);
+        }
+        
+    }
+}
+
 module.exports = { 
     getList, 
     getSoulByDate, 
-    createUser
+    createUser,
+    updateSoulStatus,
 }
 
