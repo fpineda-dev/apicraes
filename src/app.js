@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 require('./database');
 
-const whiteList = ['http://localhost:3001','https://apicraes.onrender.com']
+const whiteList = ['http://localhost:3001','https://apicraes.onrender.com','https://fpineda-dev.github.io']
 
 
 const server = http.createServer(app);
