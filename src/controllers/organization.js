@@ -32,10 +32,10 @@ const updateOrganization = async (req, res) => {
 const getOrganizationById = async (req, res) => {
     const { idorganization } = req.params;
     if (idorganization !== '') {
-        const org = await security.find({ idorganization: { $gt: idorganization } })    
-        const [ { access_token } ] = org
-        console.log(`Return Token ${access_token}`);   
-        res.json(access_token)
+        const org = await security.findOne({'idorganization': idorganization})     
+        const  { access_token }  = org
+        console.log(`Return Token ${access_token}`);  
+        res.json(access_token) // org
     }
 }
 
