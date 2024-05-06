@@ -6,9 +6,6 @@ const cors = require('cors');
 const app = express();
 require('./database');
 
-const whiteList = ['http://localhost:3001','https://apicraes.onrender.com','https://fpineda-dev.github.io','https://apicraes.onrender.com/v1/organization','https://apicraes.onrender.com/v1/user']
-
-
 const server = http.createServer(app);
 
 const io = require('socket.io')(server, {
@@ -22,7 +19,7 @@ const io = require('socket.io')(server, {
 app.use(express.json());
 
 const { router } = require('./routes')
-app.use(cors({origin: whiteList}));
+app.use(cors());
 app.use("/v1", router)
 
 const PORT = process.env.PORT || 3000;
